@@ -3,7 +3,7 @@ import streamlit as st
 # --- 1. APP CONFIG (Professional Icon) ---
 st.set_page_config(
     page_title="AI Master 2.0",
-    page_icon="🤖",
+    page_icon="🚩",
     layout="wide"
 )
 
@@ -43,7 +43,7 @@ if not st.session_state.authenticated:
                 st.error("Galat Key!")
 else:
     # --- 4. MAIN DASHBOARD ---
-    st.sidebar.title("🤖 Master Control")
+    st.sidebar.title("🚩 Master Control")
     task = st.sidebar.radio("Mission:", ["🎬 Video AI", "🎨 Image AI", "🧪 Science 3D", "🧠 Master Search"])
 
     # --- VIDEO CREATOR ---
@@ -80,4 +80,28 @@ else:
     if st.sidebar.button("Logout"):
         st.session_state.authenticated = False
         st.rerun()
+        import streamlit as st
+import base64
+
+# --- 1. CODE-GENERATED PROFESSIONAL ICON (SVG to Base64) ---
+# Hum code se hi ek professional logo bana rahe hain: Black circle, Green text 'AM'
+# Is SVG ko hum page configuration mein lagayenge
+icon_svg = """
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <circle cx="50" cy="50" r="48" stroke="#10A37F" stroke-width="2" fill="black" />
+  <text x="50%" y="50%" text-anchor="middle" stroke="#10A37F" stroke-width="2px" dy=".3em" font-size="50" font-family="Verdana" font-weight="bold" fill="white">AM</text>
+</svg>
+"""
+def get_base64_icon(svg):
+    b64 = base64.b64encode(svg.encode('utf-8')).decode('utf-8')
+    return f"data:image/svg+xml;base64,{b64}"
+
+# --- 2. UPDATED APP CONFIG WITH NEW ICON ---
+# Purana robot emoji hat gaya, ab humara custom 'AM' symbol aayega
+st.set_page_config(
+    page_title="AI Master Pro", 
+    page_icon=get_base64_icon(icon_svg), # Humara professional symbol yahan lagega
+    layout="wide"
+)
+
       
